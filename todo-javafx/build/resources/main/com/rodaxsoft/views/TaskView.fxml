@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="10" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.rodaxsoft.controllers.TaskController">
+
+    <padding>
+        <Insets top="20" right="20" bottom="20" left="20"/>
+    </padding>
+
+    <Label text="Task manager" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
+
+    <TableView fx:id="taskTable" VBox.vgrow="ALWAYS">
+        <columns>
+            <TableColumn fx:id="colId" text="ID" prefWidth="250" />
+            <TableColumn fx:id="colTitle" text="Title" prefWidth="150" />
+            <TableColumn fx:id="colDescription" text="Description" prefWidth="300" />
+            <TableColumn fx:id="colStatus" text="State" prefWidth="50" />
+            <TableColumn fx:id="colDue" text="Due" prefWidth="250" />
+        </columns>
+    </TableView>
+
+    <HBox spacing="10" alignment="CENTER_LEFT">
+        <Button text="Refresh" onAction="#handleRefresh" style="-fx-background-color: #4CAF50; -fx-text-fill: white;"/>
+        <Label fx:id="statusLabel" text="Ready" style="-fx-text-fill: gray;"/>
+    </HBox>
+
+</VBox>
