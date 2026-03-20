@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/17.0.12"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.rodaxsoft.controllers.MenuController">
+
+    <HBox AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" style="-fx-background-color: #f4f4f4;">
+
+        <MenuBar style="-fx-background-color: transparent;">
+            <menus>
+                <Menu mnemonicParsing="false" text="Tasks">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#openGetAllScreen" text="List All Tasks" />
+                        <MenuItem mnemonicParsing="false" onAction="#openPostScreen" text="Create New Task (POST)" />
+                    </items>
+                </Menu>
+                <Menu mnemonicParsing="false" text="Edit">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#UpdateTask" text="Update selected" />
+                        <MenuItem mnemonicParsing="false" onAction="#DeleteTask" text="Delete selected" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+
+        <Region HBox.hgrow="ALWAYS" />
+
+        <MenuBar style="-fx-background-color: transparent;">
+            <menus>
+                <Menu mnemonicParsing="false" text="Account">
+                    <items>
+                        <MenuItem mnemonicParsing="false" onAction="#RefreshToken" text="Refresh token" />
+                        <SeparatorMenuItem mnemonicParsing="false" />
+                        <MenuItem mnemonicParsing="false" onAction="#handleLogout" text="Logout" />
+                    </items>
+                </Menu>
+            </menus>
+        </MenuBar>
+
+    </HBox>
+</AnchorPane>

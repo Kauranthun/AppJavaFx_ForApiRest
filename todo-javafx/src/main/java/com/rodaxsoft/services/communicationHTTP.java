@@ -95,7 +95,6 @@ public class communicationHTTP {
         if (response.statusCode() == 200) {
             JSONWebToken tokenObj = mapper.readValue(response.body(), JSONWebToken.class);
             this.TokenActuel = tokenObj.getJwt();
-            System.out.println(TokenActuel);
         } else {
             throw new RuntimeException("Erreur de refresh : " + response.statusCode());
         }
@@ -147,6 +146,7 @@ public class communicationHTTP {
 
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/tasks"))
+                .header("Content-Type", "application/json")
                 .header("x-access-token",TokenActuel)
                 .POST(HttpRequest.BodyPublishers.ofString(jsonBody))
                 .build();
@@ -166,6 +166,7 @@ public class communicationHTTP {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/tasks/" + id))
                 .header("Content-Type", "application/json")
+                .header("x-access-token",TokenActuel)
                 .PUT(HttpRequest.BodyPublishers.ofString(jsonBody)) // Utilisation de PUT
                 .build();
 
@@ -181,6 +182,7 @@ public class communicationHTTP {
     public void delete(String id) throws IOException, InterruptedException {
         HttpRequest request = HttpRequest.newBuilder()
                 .uri(URI.create("http://localhost:8080/tasks/"+id))
+                .header("x-access-token",TokenActuel)
                 .DELETE().build();
 
         HttpResponse<String> response = client.send(request,HttpResponse.BodyHandlers.ofString());

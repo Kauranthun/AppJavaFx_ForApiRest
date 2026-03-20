@@ -21,6 +21,22 @@ public class TaskController {
     @FXML private Label statusLabel;
 
     private final communicationHTTP service = Main.service;
+    private static TaskController instance;
+
+    public TaskController() {
+        instance = this;
+    }
+
+    public static TaskController getInstance() {
+        return instance;
+    }
+
+    public Task getSelectedTask() {
+        if (taskTable != null) {
+            return taskTable.getSelectionModel().getSelectedItem();
+        }
+        return null;
+    }
 
     @FXML
     public void initialize() {
@@ -33,7 +49,7 @@ public class TaskController {
     }
 
     @FXML
-    private void handleRefresh() {
+    public void handleRefresh() {
         try {
             statusLabel.setText("Loading");
             List<Task> tasks = service.GetAll();

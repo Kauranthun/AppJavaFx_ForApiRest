@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox alignment="CENTER" prefHeight="450.0" prefWidth="400.0" spacing="15.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodaxsoft.controllers.UpdateTaskController">
+    <padding>
+        <Insets bottom="30.0" left="40.0" right="40.0" top="30.0" />
+    </padding>
+
+    <Label style="-fx-font-size: 20px; -fx-font-weight: bold;" text="Mettre à jour la tâche" />
+
+    <VBox spacing="5.0">
+        <Label text="Titre de la tâche" />
+        <TextField fx:id="Name" promptText="Entrez le titre" />
+    </VBox>
+
+    <VBox spacing="5.0">
+        <Label text="Description" />
+        <TextField fx:id="Description" promptText="Entrez la description" />
+    </VBox>
+
+    <VBox spacing="5.0">
+        <Label text="Date d'échéance (Due Date)" />
+        <DatePicker fx:id="Date" prefWidth="320.0" promptText="Sélectionnez une date" />
+    </VBox>
+
+    <VBox spacing="5.0">
+        <Label text="Statut" />
+        <ComboBox fx:id="statusComboBox" prefWidth="320.0" promptText="Sélectionnez un statut" />
+    </VBox>
+
+    <Button fx:id="updateButton" mnemonicParsing="false" onAction="#sendUpdateRequest" prefHeight="35.0" prefWidth="150.0" style="-fx-background-color: #FF9800; -fx-text-fill: white; -fx-font-weight: bold;" text="Enregistrer">
+        <VBox.margin>
+            <Insets top="15.0" />
+        </VBox.margin>
+    </Button>
+
+</VBox>

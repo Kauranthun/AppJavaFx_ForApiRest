@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.rodaxsoft.controllers.PostController">
+    <children>
+        <GridPane layoutY="6.0" prefHeight="552.0" prefWidth="600.0">
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="294.0" minWidth="10.0" prefWidth="208.99998474121094" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="489.00001525878906" minWidth="10.0" prefWidth="391.00001525878906" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints maxHeight="156.0" minHeight="0.0" prefHeight="26.000003814697266" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="241.2" minHeight="10.0" prefHeight="64.79999999999998" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="272.600015258789" minHeight="0.0" prefHeight="53.599999999999994" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="332.99999237060547" minHeight="10.0" prefHeight="63.399992370605474" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="303.40001525878904" minHeight="10.0" prefHeight="70.79999999999998" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="306.40001525878904" minHeight="10.0" prefHeight="84.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="224.60000000000002" minHeight="32.60000000000002" prefHeight="72.19999999999999" />
+            <RowConstraints maxHeight="148.60003051757815" minHeight="30.600000000000023" prefHeight="117.60003051757815" />
+            </rowConstraints>
+            <children>
+                <fx:include source="Menu.fxml" GridPane.rowIndex="0" />
+                <Label text="Name:" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets right="5.0" />
+                    </GridPane.margin>
+                </Label>
+                <Label text="Description:" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
+                    <GridPane.margin>
+                        <Insets right="5.0" />
+                    </GridPane.margin>
+                </Label>
+                <Label text="Date:" GridPane.halignment="RIGHT" GridPane.rowIndex="5">
+                    <GridPane.margin>
+                        <Insets right="5.0" />
+                    </GridPane.margin>
+                </Label>
+                <Button mnemonicParsing="false" onAction="#sendPostRequest" text="POST" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="7" />
+
+                <TextField fx:id="Name" GridPane.columnIndex="1" GridPane.rowIndex="1">
+                    <GridPane.margin>
+                        <Insets left="5.0" right="20.0" />
+                    </GridPane.margin>
+                    <opaqueInsets>
+                        <Insets left="5.0" right="5.0" />
+                    </opaqueInsets>
+                </TextField>
+                <TextField fx:id="Description" GridPane.columnIndex="1" GridPane.rowIndex="3">
+                    <GridPane.margin>
+                        <Insets left="5.0" right="20.0" />
+                    </GridPane.margin>
+                    <opaqueInsets>
+                        <Insets left="5.0" right="5.0" />
+                    </opaqueInsets>
+                </TextField>
+                <DatePicker fx:id="Date" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="5">
+                    <GridPane.margin>
+                        <Insets left="5.0" right="20.0" />
+                    </GridPane.margin>
+                    <opaqueInsets>
+                        <Insets left="5.0" right="5.0" />
+                    </opaqueInsets>
+                </DatePicker>
+            </children>
+        </GridPane>
+    </children>
+</AnchorPane>

@@ -1,40 +1,34 @@
 package com.rodaxsoft;
 
-import com.rodaxsoft.models.ApplicationUser;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import com.rodaxsoft.services.communicationHTTP;
-import com.rodaxsoft.models.Credentials;
+import java.io.IOException;
 
 public class Main extends Application {
-
     public static communicationHTTP service = new communicationHTTP();
+    private static Stage primaryStage; // Garder la référence
 
     @Override
-    public void start(Stage primaryStage) throws Exception {
+    public void start(Stage stage) throws Exception {
 
-        try {
-            Credentials moi = new Credentials();
-            moi.setEmail("corentin@gmail.com");
-            moi.setPassword("CocoAlgebra");
-            service.login(moi);
-            System.out.println("Auth success !");
-        } catch (Exception e) {
-            System.err.println("Auth failed at start : " + e.getMessage());
-        }
+        primaryStage = stage;
+        showView("/com/rodaxsoft/views/Auth.fxml", "Task Manager");
+    }
 
-
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/rodaxsoft/views/TaskView.fxml"));
+    // Méthode statique pour changer de vue n'importe où
+    public static void showView(String fxmlPath, String title) throws IOException {
+        FXMLLoader loader = new FXMLLoader(Main.class.getResource(fxmlPath));
         Parent root = loader.load();
-
-        primaryStage.setTitle("Todo App - Interoperability");
+        primaryStage.setTitle(title);
         primaryStage.setScene(new Scene(root, 1000, 600));
         primaryStage.show();
     }
 
+    // Dans votre fichier Main.java
     public static void main(String[] args) {
         launch(args);
     }
